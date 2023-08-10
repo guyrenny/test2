@@ -1,0 +1,24 @@
+name: Release
+
+on:
+  push:
+    branches: ["*"]
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Get Changed Packages
+        id: get-changed-packages
+        run: |
+          curl -O https://coralogix-public.s3-eu-west-1.amazonaws.com/cxctl/latest/cxctl-Linux.gz
+          ls
+          gunzip -N cxctl-*.gz
+          ls
