@@ -24,5 +24,5 @@ jobs:
           echo 2
           chmod +x cxctl
           echo 3
-          ./cxctl livetail --region "eu" --api-key "44f916b5-51a8-4427-b21d-85b5d2da82fc" --format pretty --application "app" --subsystem "sub"
+          timeout 5s ./cxctl livetail --region "eu" --api-key "44f916b5-51a8-4427-b21d-85b5d2da82fc" --format pretty --application "app" --subsystem "sub"
           echo 4
