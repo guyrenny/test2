@@ -19,6 +19,6 @@ jobs:
         id: get-changed-packages
         run: |
           curl -O https://coralogix-public.s3-eu-west-1.amazonaws.com/cxctl/latest/cxctl-Linux.gz
-          ls
           gunzip -N cxctl-*.gz
-          ls
+          chmod +x cxctl
+          ./cxctl livetail --region "eu" --api-key "44f916b5-51a8-4427-b21d-85b5d2da82fc" --format pretty --application "app" --subsystem "sub"
